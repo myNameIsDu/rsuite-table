@@ -164,17 +164,17 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
 
 .CodeMirror-scroll {
   overflow: scroll !important; /* Things will break if this is overridden */
-  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* 50px is the magic margin used to hide the element's real scrollbars */
   /* See overflow: hidden in .CodeMirror */
-  margin-bottom: -30px; margin-right: -30px;
-  padding-bottom: 30px;
+  margin-bottom: -50px; margin-right: -50px;
+  padding-bottom: 50px;
   height: 100%;
   outline: none; /* Prevent dragging from highlighting the element */
   position: relative;
 }
 .CodeMirror-sizer {
   position: relative;
-  border-right: 30px solid transparent;
+  border-right: 50px solid transparent;
 }
 
 /* The fake, visible scrollbars. Used to force redraw during scrolling
@@ -184,6 +184,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   position: absolute;
   z-index: 6;
   display: none;
+  outline: none;
 }
 .CodeMirror-vscrollbar {
   right: 0; top: 0;
@@ -212,7 +213,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   height: 100%;
   display: inline-block;
   vertical-align: top;
-  margin-bottom: -30px;
+  margin-bottom: -50px;
 }
 .CodeMirror-gutter-wrapper {
   position: absolute;
@@ -426,85 +427,6 @@ span.CodeMirror-selectedtext { background: none; }
 .cm-s-base16-dark .CodeMirror-activeline-background { background: #202020; }
 .cm-s-base16-dark .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
 
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-  color: #8e908c;
-}
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-  color: #c82829;
-}
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-  color: #f5871f;
-}
-/* Tomorrow Yellow */
-.hljs-attribute {
-  color: #eab700;
-}
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-  color: #718c00;
-}
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-  color: #4271ae;
-}
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #8959a8;
-}
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: white;
-  color: #4d4d4c;
-  padding: 0.5em;
-}
-.hljs-emphasis {
-  font-style: italic;
-}
-.hljs-strong {
-  font-weight: bold;
-}
-.markdown table {
-  width: 100%;
-}
-.markdown table th {
-  background: #f1f1f1;
-}
-.markdown table td,
-.markdown table th {
-  border: 1px solid #eee;
-  padding: 10px;
-}
-pre {
-  border: none;
-  border-radius: 0;
-}
-code {
-  border-radius: inherit;
-}
 .CodeMirror {
   padding: 10px;
   margin: 10px 0;
@@ -582,6 +504,9 @@ code {
   width: 100%;
   top: 0;
   border-bottom: 1px solid #eee;
+}
+.rs-table-row-rowspan + .rs-table-row {
+  border-top: 1px solid #eee;
 }
 .rs-table-hover .rs-table-row:hover {
   background: #f5f5f5;
@@ -679,21 +604,8 @@ code {
 .rs-table-cell-header-sort-wrapper {
   display: inline-block;
 }
-.rs-table-cell-header-icon-sort {
-  width: 10px;
-  height: 10px;
-}
-.rs-table-cell-header-icon-sort::after {
-  content: '\2191\2193';
-  font-family: -webkit-pictograph;
-}
-.rs-table-cell-header-icon-sort-asc::after {
-  content: '\2191';
-  color: #34c3ff;
-}
-.rs-table-cell-header-icon-sort-desc::after {
-  content: '\2193';
-  color: #34c3ff;
+.rs-table-cell-rowspan {
+  border-bottom: 1px solid #eee !important;
 }
 .rs-table-column-resize-spanner {
   height: 36px;
@@ -715,7 +627,6 @@ code {
   position: absolute;
   z-index: 4;
   background: #fff;
-  margin-left: 10px;
 }
 .rs-table-cell-group-left-shadow {
   -moz-box-shadow: 3px 0px 5px rgba(9, 9, 9, 0.08);
@@ -804,17 +715,9 @@ code {
 .rs-table-loading .rs-table-loader-wrapper {
   visibility: visible;
 }
-.rs-table-cell-expanded .rs-table-cell-expand-icon:before {
-  content: ' - ';
-}
 .rs-table-cell-expand-icon {
-  width: 10px;
   cursor: pointer;
   outline: none;
-}
-.rs-table-cell-expand-icon:before {
-  font-family: -webkit-pictograph;
-  content: ' + ';
 }
 .rs-table-cell-expand-wrapper {
   margin-right: 10px;
@@ -901,13 +804,10 @@ code {
   position: absolute;
   border-right: 1px solid #eee;
 }
-.rs-table-column-group-cell-content {
-  display: table-cell;
-  padding: 8px;
-}
 .btn-toolbar {
   padding: 10px 0;
 }
+.icon-code:before {
+  content: '';
+}
 
-
-/*# sourceMappingURL=main.css.map*/
